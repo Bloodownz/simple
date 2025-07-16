@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Festival Trinkspiel 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(135deg, #ff5c8d, #ffd93d);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: white;
+      color: #ff5c8d;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .card {
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+      margin-bottom: 20px;
+      min-width: 250px;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Festival Trinkspiel 🎲</h1>
+  <div class="card" id="card">
+    <strong>Kategorie</strong>
+    <p>Klicke auf den Button für ein Feld!</p>
+  </div>
+  <button onclick="drawField()">Feld ziehen</button>
+
+  <script>
+    const fields = [
+      { category: "🔥 Challenge", text: "Mach 5 Hampelmänner mit Bier in der Hand" },
+      { category: "🔥 Challenge", text: "Sing einen Kinderhit auf Techno" },
+      { category: "🍻 Alle, die...", text: "alle mit Sonnenbrand" },
+      { category: "🔁 Aktion", text: "Zurück auf Start" },
+      { category: "🥴 Trink", text: "Trinke 2 Schlücke" },
+      { category: "🍻 Alle, die...", text: "alle, die heute schon Bier getrunken haben" },
+      { category: "🧢 Kleidung", text: "alle mit Kappe trinken" },
+      { category: "💦 Frisch geduscht", text: "alle, die heute geduscht haben, trinken" },
+      { category: "🔥 Challenge", text: "Zähle rückwärts von 30 – bei Fehler: trinken" },
+      { category: "🔁 Aktion", text: "Platz tauschen mit einer Person deiner Wahl" }
+    ];
+
+    function drawField() {
+      const r = Math.floor(Math.random() * fields.length);
+      const field = fields[r];
+      document.getElementById("card").innerHTML = `<strong>${field.category}</strong><p>${field.text}</p>`;
+    }
+  </script>
+</body>
+</html>
